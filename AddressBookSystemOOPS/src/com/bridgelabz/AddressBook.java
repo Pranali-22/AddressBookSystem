@@ -8,8 +8,7 @@ import java.util.*;
  * @author Dell
  *
  */
-public class AddressBook {
-	
+public class AddressBook {	
 	
 	String firstName;
 	String lastName;
@@ -18,9 +17,7 @@ public class AddressBook {
 	String state;
 	String zip;
 	String phoneNumber;
-	String emailId;
-	
-	
+	String emailId;	
 
 	public AddressBook(String firstName, String lastName, String address, String city, String state, String zip,
 			String phoneNumber, String emailId) {
