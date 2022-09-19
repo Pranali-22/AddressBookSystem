@@ -9,7 +9,7 @@ import java.util.Scanner;
  * @author Dell
  *
  */
-public class AddressBookMain {
+ class AddressBookMain {
 
 	/**
 	 * @param args
@@ -20,48 +20,29 @@ public class AddressBookMain {
 		
 		AddressBook addressBook1 = new AddressBook();
 		
-		String firstName1,lastName1, address1, city1, state1, zip1, phoneNo1, email1;
 		
-		//Adding 1st person
-		System.out.println("Enter first name, last name, address, city, state, zip, phone number, email ID sequentially");
-		firstName1 = input.nextLine();
-		lastName1 = input.nextLine();
-		address1 = input.nextLine();
-		city1 = input.nextLine();
-		state1 = input.nextLine();
-		zip1 = input.nextLine();
-		phoneNo1 = input.nextLine();
-		email1 = input.nextLine();		
-			
-		Contact personObj1 =  new Contact(firstName1, lastName1, address1, city1, state1, zip1, phoneNo1, email1);
-		addressBook1.addToAddressBook(personObj1);
+		int choice =1;
 		
-		personObj1.displayData();
-		
-		//Adding 2nd person
-		System.out.println("Enter first name, last name, address, city, state, zip, phone number, email ID sequentially");
-		firstName1 = input.nextLine();
-		lastName1 = input.nextLine();
-		address1 = input.nextLine();
-		city1 = input.nextLine();
-		state1 = input.nextLine();
-		zip1 = input.nextLine();
-		phoneNo1 = input.nextLine();
-		email1 = input.nextLine();
-		
-		Contact personObj2 =  new Contact(firstName1, lastName1, address1, city1, state1, zip1, phoneNo1, email1);
-		addressBook1.addToAddressBook(personObj2);
-			
-		personObj2.displayData();
-		
-		//Edit email id for given name
-		System.out.println("Enter name to edit person details");
-		String name=input.nextLine();
-		addressBook1.editPersonEmailId(name);
-		
-		System.out.println("Data after edit");
-		personObj1.displayData();
-		personObj2.displayData();
+		while (choice!=0){
+         
+            switch (choice){
+                case 0:
+                    return;
+                   
+                case 1:
+                    addressBook1.addToAddressBook();
+                    break;
+                case 2:
+                    addressBook1.editPersonName();
+                    break;   
+                case 3:
+                	addressBook1.displayAddressBook();
+                	break;
+            }
+            
+            System.out.println("Press 0 to exit \nPress 1 to add more contact \nPress 2 to edit contact \nPress 3 to display");
+            choice = input.nextInt();
+        }
 		
 		input.close();
 	}

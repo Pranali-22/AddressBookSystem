@@ -35,7 +35,7 @@ public class Contact {
 	}
 
 	//Method for displaying data
-	public void displayData() {
+	public void displayContact() {
 		System.out.println("First Name : "+firstName);
 		System.out.println("Last Name : "+lastName);
 		System.out.println("Address : "+address);
