@@ -9,7 +9,7 @@ import java.util.*;
  */
 /*
  * Ability to add a new
-Contact to Address Book UC4 - Use Console to delete person details from
+Contact to Address Book UC5 - Use arraylist to store contact objects
 AddressBookMain class
 - Use Object Oriented Concepts to manage
 relationship between AddressBook and Contact
@@ -20,8 +20,8 @@ Person
 public class AddressBook {	
 	
 	//Created an array of size 10 to store contacts
-	Contact[] allContacts = new Contact[10];
-	static int index=0;
+	private ArrayList<Contact> allContacts = new ArrayList<>();
+	
 	Scanner input = new Scanner(System.in);
 	
 	String firstName1,lastName1, address1, city1, state1, zip1, phoneNo1, email1;
@@ -41,8 +41,8 @@ public class AddressBook {
 		
 		Contact personContact =  new Contact(firstName1, lastName1, address1, city1, state1, zip1, phoneNo1, email1);
 		
-		allContacts[index]=personContact;
-		index++;
+		allContacts.add(personContact);
+		
 	}
 	
 	// Edit person name for the given name
@@ -54,9 +54,10 @@ public class AddressBook {
 		System.out.println("Enter name to update");
 		String nameToUpdate = input.nextLine();
 		
-		for(int i=0; i < index; i++) {
-			if(allContacts[i].firstName.equals(currentName)) {
-				allContacts[i].firstName = nameToUpdate;
+		for(int i=0; i < allContacts.size(); i++) {
+			if(allContacts.get(i).firstName.equals(currentName)) {
+				Contact contact= allContacts.get(i);
+				contact.firstName = nameToUpdate;
 				check=1;
 				return;
 			}
@@ -70,29 +71,27 @@ public class AddressBook {
 	//Display contact details
 	
 	public void displayAddressBook() {
-		for(int i=0; i < index; i++) {
-			allContacts[i].displayContact();
+		for(int i=0; i < allContacts.size(); i++) {
+			allContacts.get(i).displayContact();
 		}
 	}
 	
 	//Delete a contact using name
 	public void deleteContact() {
-		
+		int check=0;
 		System.out.println("\nEnter name of person to delete contact");
 		String name = input.nextLine();
-		for(int i=0; i <index; i++) {	
-			if(allContacts[i].firstName.equals(name)) {
-				allContacts[i].firstName = null;
-				allContacts[i].lastName = null;
-				allContacts[i].address = null;
-				allContacts[i].city = null;
-				allContacts[i].state = null;
-				allContacts[i].zip = null;
-				allContacts[i].phoneNumber = null;
-				allContacts[i].emailId = null;
-			
+		
+		for(int i=0; i <allContacts.size(); i++) {	
+			if(allContacts.get(i).firstName.equals(name)) {				
+				allContacts.remove(i);	
+				check=1;
 				break;
 			}
+		}
+		
+		if(check==0) {
+			System.out.println("No record found with given name to delete");
 		}
 	}
 }
