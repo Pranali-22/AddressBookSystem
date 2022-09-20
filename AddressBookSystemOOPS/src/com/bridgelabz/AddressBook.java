@@ -9,7 +9,7 @@ import java.util.*;
  */
 /*
  * Ability to add a new
-Contact to Address Book UC5 - Use arraylist to store contact objects
+Contact to Address Book UC6 - Use arraylist to store multiple address books
 AddressBookMain class
 - Use Object Oriented Concepts to manage
 relationship between AddressBook and Contact

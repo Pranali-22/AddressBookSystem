@@ -34,7 +34,7 @@ public class Contact {
 		this.emailId = emailId;
 	}
 
-	//Method for displaying data
+	//Method for displaying data of contact 
 	public void displayContact() {
 		System.out.println();
 		System.out.println("First Name : "+firstName);
